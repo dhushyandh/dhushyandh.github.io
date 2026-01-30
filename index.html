@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My-PortFolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="./tailwind.config.js"></script>
+    <link rel="stylesheet" href="index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Ovo&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+</head>
+
+<body class="overflow-x-hidden font-Outfit leading-8 dark:bg-darkTheme dark:text-white">
+    <div class="fixed top-0 right-0 w-11/12 -z-10 translate-y-[-80%] dark:hidden">
+        <img src="./images/header-bg-color.png" class="w-full h-48" alt="">
+    </div>
+    <nav class="w-full fixed px-5 lg:px-8 xl:px-[8%] py-4  flex items-center justify-between z-50">
+        <div class="flex max-w-6xl items-center justify-between px-6 py-3">
+            <a href="#home" class="font-extrabold tracking-tight text-xl  md:text-2xl">
+                Dhushyandh<span class="text-primary dark:text-lightPrimary">.</span>
+            </a>
+        </div>
+        <ul class="hidden md:flex items-center gap-6 lg:gap-8 rounded-full px-12 py-3
+         bg-white shadow-sm bg-opacity-50 font-Ovo 
+         dark:border dark:border-white/50 dark:bg-transparent">
+            <li><a href="#top">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#work">My Work</a></li>
+            <li><a href="#contact">Contact Me</a></li>
+        </ul>
+        <div class="flex items-center gap-4">
+            <button title="Toggle theme" onclick="toggleTheme()" aria-label="Toggle theme">
+                <img src="./images/moon_icon.png" class="w-6 dark:hidden" alt="">
+                <img src="./images/sun_icon.png" class="w-6 hidden dark:block" alt="">
+            </button>
+            <a class="hidden lg:flex items-center gap-3 px-10 py-2.5 border border-gray-500 rounded-full ml-4 font-Ovo
+            dark:border-white/50 " href="#contact">Contact
+                <img class="w-3 dark:hidden" src="./images/arrow-icon.png" alt="">
+                <img class="w-3 hidden dark:block" src="./images/arrow-icon-dark.png" alt=""></a>
+
+            <button class="block md:hidden ml-3" aria-label="Open menu" onclick="openMenu()">
+                <img src="./images/menu-black.png" class="w-6 cursor-pointer dark:hidden" alt="">
+                <img src="./images/menu-white.png" class="w-6 cursor-pointer hidden dark:block" alt="">
+            </button>
+        </div>
+        <!-- Mobile menu button -->
+        <ul id="side-menu" class="flex md:hidden flex-col gap-4 py-20 px-10 
+        fixed -right-64 top-0 bottom-0 w-64 z-50 h-screen bg-rose-50 transition duration-500 font-Ovo
+        dark:bg-darkHover dark:text-white">
+            <li class="absolute right-6 top-6">
+                <button onclick="closeMenu()" aria-label="Close menu">
+                    <img src="./images/close-black.png" class="w-5 cursor-pointer dark:hidden" alt="">
+                    <img src="./images/close-white.png" class="w-5 cursor-pointer hidden dark:block" alt="">
+                </button>
+            </li>
+            <li><a onclick="closeMenu()" href="#top">Home</a></li>
+            <li><a onclick="closeMenu()" href="#about">About</a></li>
+            <li><a onclick="closeMenu()" href="#services">Services</a></li>
+            <li><a onclick="closeMenu()" href="#work">My Work</a></li>
+            <li><a onclick="closeMenu()" href="#contact">Contact Me</a></li>
+        </ul>
+    </nav>
+    <!-- Header -->
+    <div
+        class="w-11/12 max-w-3xl text-center mb-16 mx-auto min-h-screen flex flex-col items-center justify-center gap-4">
+
+        <img src="./images/user-image.png" class="rounded-full w-40 mt-10 h-40 sm:w-52 sm:h-52" alt=""
+            data-aos="zoom-in" data-aos-duration="1000">
+        <h3 class="flex items-center gap-2 text-xl md:text-2xl mb-3 font-Ovo" data-aos="fade-left">Hi, Im Dhushyandh!
+            <img src="./images/hand-icon.png" class="w-6" alt="">
+        </h3>
+        <h1 class="text-2xl sm:text-3xl md:text-6xl lg:text-[66px] font-Ovo leading-tight" data-aos="fade-right">
+            Mern-Stack Web Developer based in
+            India.</h1>
+        <p class="max-w-sm mt-8 sm:max-w-md md:max-w-2xl mb-2 mx-auto font-Ovo text-sm sm:text-base leading-6"
+            data-aos="fade-left">I’m a MERN Stack Web Developer passionate about
+            building modern, scalable web applications. I focus on creating clean user interfaces, efficient backend
+            APIs, and real-world solutions using JavaScript and the MERN stack.</p>
+        <div class="flex flex-col sm:flex-row items-center gap-4 mt-4" data-aos="zoom-in" data-aos-duration="1000">
+            <a class="px-10 py-3 border  text-white rounded-full bg-gradient-to-t from-[#b820e6] to-[#da7d20] text-wrap flex items-center gap-2 dark:bg-transparent"
+                href="#contact">Contact Me
+                <img src="./images/right-arrow-white.png" class="w-4" alt=""></a>
+            <a class="px-10 py-3 border rounded-full border-gray-500 bg-white flex items-center gap-2
+             dark:text-black" href="./resume/Resume - N Dhushyandh.pdf" download>My Resume
+                <img src="./images/download-icon.png" class="w-4" alt=""></a>
+        </div>
+    </div>
+    <!-- About me -->
+    <div id="about" class="w-full px-[12%] py-10 scroll-mt-20" data-aos="fade-up">
+        <h4 class="text-center mb-2 text-lg font-Ovo">Introduction</h4>
+        <h2 class="text-center text-5xl font-Ovo">About Me</h2>
+
+        <div class="flex w-full flex-col lg:flex-row items-center gap-20 my-20">
+
+            <!-- LEFT : Image -->
+            <div class="max-w-max mx-auto relative" data-aos="fade-right">
+                <img src="./images/user-image.png" class="w-64 sm:w-80 rounded-3xl max-w-none"
+                    alt="Profile photo of Dhushyandh">
+                <div class="bg-white w-1/2 aspect-square absolute right-0 bottom-0 rounded-full
+                        translate-x-1/4 translate-y-1/4
+                        shadow-[0_4px_55px_rgba(149,0,162,0.15)]
+                        flex items-center justify-center">
+                    <img src="./images/mern-dev.png" class="w-full animate-spin_slow" alt="">
+                    <img src="./images/dev-icon.png" class="w-1/4 absolute top-1/2 left-1/2
+                            -translate-x-1/2 -translate-y-1/2" alt="">
+                </div>
+            </div>
+
+            <!-- RIGHT : Text -->
+            <div class="flex-1" data-aos="fade-left">
+                <p class="mb-10 max-w-2xl font-Ovo">
+                    I’m a MERN Stack Web Developer and Computer Science student who enjoys building modern,
+                    scalable web applications. I focus on creating clean user interfaces, efficient backend APIs,
+                    and real-world solutions using JavaScript, React, Node.js, Express, and MongoDB.
+                </p>
+                <ul class="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-2xl">
+                    <li class="border-[0.5px] border-gray-400 rounded-xl p-6
+                    cursor-pointer hover:bg-lightHover -translate-y-1 duration-500
+                    hover:shadow-black dark:border-white dark:hover:shadow-white dark:hover:bg-darkHover">
+                        <img src="./images/code-icon.png" class="w-7 mt-3 dark:hidden" alt="">
+                        <img src="./images/code-icon-dark.png" class="w-7 mt-3 dark:block hidden" alt="">
+                        <h3 class="my-4 font-semibold text-gray-700 dark:text-white">Languages</h3>
+                        <p class="text-gray-600 text-sm dark:text-white">HTML, CSS, JavaScript, React, Node.js</p>
+                    </li>
+                    <li class="border-[0.5px] border-gray-400 rounded-xl p-6
+                    cursor-pointer hover:bg-lightHover -translate-y-1 duration-500
+                    hover:shadow-black  dark:border-white dark:hover:shadow-white dark:hover:bg-darkHover">
+                        <img src="./images/edu-icon.png" class="w-7 mt-3 dark:hidden" alt="">
+                        <img src="./images/edu-icon-dark.png" class="w-7 mt-3 dark:block hidden" alt="">
+                        <h3 class="my-4 font-semibold text-gray-700 dark:text-white">Education</h3>
+                        <p class="text-gray-600 text-sm dark:text-white">B.E - COMPUTER SCIENCE ENGINEERING</p>
+                    </li>
+                    <li class="border-[0.5px] border-gray-400 rounded-xl p-6
+                    cursor-pointer hover:bg-lightHover -translate-y-1 duration-500
+                    hover:shadow-black  dark:border-white dark:hover:shadow-white dark:hover:bg-darkHover">
+                        <img src="./images/project-icon.png" class="w-7 mt-3 dark:hidden" alt="">
+                        <img src="./images/project-icon-dark.png" class="w-7 mt-3 dark:block hidden" alt="">
+                        <h3 class="my-4 font-semibold text-gray-700 dark:text-white">Projects</h3>
+                        <p class="text-gray-600 text-sm dark:text-white">Ecommerce-Website, Voting System, Gemini</p>
+                    </li>
+                </ul>
+                <h4 class="my-6 text-gray-700 font-Ovo dark:text-white/80">Tools I Used</h4>
+                <ul class="flex items-center gap-3 sm:gap-5">
+                    <li class="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer
+                    hover:-translate-y-1 duration-500">
+                        <img src="./images/vscode.png" class="w-5 sm:w-7" alt="">
+                    </li>
+                    <li class="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer
+                    hover:-translate-y-1 duration-500">
+                        <img src="./images/render.svg" class="w-8 h-8 flex items-center justify-center rounded-full
+          border border-gray-400 dark:bg-white" alt="">
+                    </li>
+                    <li class="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer
+                    hover:-translate-y-1 duration-500">
+                        <img src="./images/mongodb.png" class="w-5 sm:w-7" alt="">
+                    </li>
+                    <li class="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer
+                    hover:-translate-y-1 duration-500">
+                        <i data-lucide="github" class="w-5 h-5"></i>
+                    </li>
+                    <li class="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer
+                    hover:-translate-y-1 duration-500">
+                        <img src="./images/git.png" class="w-5 sm:w-7" alt="">
+                    </li>
+                    <li class="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer
+                    hover:-translate-y-1 duration-500">
+                        <img src="./images/postman.svg" class="w-8 h-8 flex items-center justify-center rounded-full
+          border border-gray-400
+          bg-[#FF6C37] text-white hover:bg-[#FF6C37]/80 transition-all duration-300" alt="">
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- My Skills -->
+    <div id="skills" class="w-full px-[12%] py-10 scroll-mt-20" data-aos="fade-up">
+        <h4 class="text-center mb-2 text-lg font-Ovo">Tech I Use</h4>
+        <h2 class="text-center text-5xl font-Ovo">My Skills</h2>
+
+        <div class="grid grid-cols-auto gap-6 mt-16">
+            <div class="border border-gray-400 rounded-xl p-6 hover:bg-lightHover hover:-translate-y-1 duration-500 dark:hover:bg-darkHover"
+                data-aos="zoom-in" data-aos-duration="1000">
+                <h3 class="font-semibold mb-4">Frontend</h3>
+                <p class="text-sm text-gray-600 dark:text-white/80">HTML, CSS, JavaScript, React, Tailwind CSS</p>
+            </div>
+
+            <div class="border border-gray-400 rounded-xl p-6 hover:bg-lightHover hover:-translate-y-1 duration-500 dark:hover:bg-darkHover"
+                data-aos="zoom-in" data-aos-duration="1000">
+                <h3 class="font-semibold mb-4">Backend</h3>
+                <p class="text-sm text-gray-600 dark:text-white/80">Node.js, Express.js, MongoDB, REST APIs</p>
+            </div>
+
+            <div class="border border-gray-400 rounded-xl p-6 hover:bg-lightHover hover:-translate-y-1 duration-500 dark:hover:bg-darkHover"
+                data-aos="zoom-in" data-aos-duration="1000">
+                <h3 class="font-semibold mb-4">Tools</h3>
+                <p class="text-sm text-gray-600 dark:text-white/80">Git, GitHub, Postman, VS Code, Render</p>
+            </div>
+
+            <div class="border border-gray-400 rounded-xl p-6 hover:bg-lightHover hover:-translate-y-1 duration-500 dark:hover:bg-darkHover"
+                data-aos="zoom-in" data-aos-duration="1000">
+                <h3 class="font-semibold mb-4">Other</h3>
+                <p class="text-sm text-gray-600 dark:text-white/80">JWT Auth, API Integration, Responsive UI</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Services -->
+    <div id="services" class="w-full px-[12%] py-10  scroll-mt-20" data-aos="fade-up">
+        <h4 class="text-center mb-2 text-lg font-Ovo">What I Offer</h4>
+        <h2 class="text-center text-5xl font-Ovo">My Services</h2>
+        <p class="text-center max-w-2xl mx-auto mt-5 mb-12 font-Ovo">
+            I help build modern, scalable, and performance-focused web applications using the MERN stack.
+        </p>
+
+        <div class="grid grid-cols-auto  gap-6 my-10">
+            <div class="border border-gray-400 rounded-lg px-8 py-12
+        hover:shadow-[4px_4px_#000] cursor-pointer hover:bg-lightHover
+        hover:-translate-y-1 duration-500 dark:hover:bg-darkHover dark:hover:shadow-white
+        flex flex-col" data-aos="zoom-in" data-aos-duration="1000">
+                <img src="./images/web-icon.png" class="w-10" alt="">
+                <h3 class="text-lg my-4 text-gray-700 dark:text-white">Full-Stack Web Development</h3>
+                <p class="text-sm text-gray-600 leading-5 dark:text-white/80">
+                    I build complete web applications using the MERN stack, from responsive frontend interfaces to
+                    secure backend APIs.
+                </p>
+                <a href="#" class="flex items-center gap-2 text-sm mt-auto pt-6">
+                    Read More
+                    <img src="./images/right-arrow.png" class="w-4" alt="">
+                </a>
+            </div>
+
+            <div class="border border-gray-400 rounded-lg px-8 py-12
+        hover:shadow-[4px_4px_#000] cursor-pointer hover:bg-lightHover
+        hover:-translate-y-1 duration-500 dark:hover:bg-darkHover dark:hover:shadow-white
+        flex flex-col" data-aos="zoom-in" data-aos-duration="1000">
+                <img src="./images/mobile-icon.png" class="w-10" alt="">
+                <h3 class="text-lg my-4 text-gray-700 dark:text-white">Backend & API Development</h3>
+                <p class="text-sm text-gray-600 leading-5 dark:text-white/80">
+                    I develop scalable backend systems using Node.js, Express.js, and MongoDB with authentication and
+                    REST APIs.
+                </p>
+                <a href="#" class="flex items-center gap-2 text-sm mt-auto pt-6">
+                    Read More
+                    <img src="./images/right-arrow.png" class="w-4" alt="">
+                </a>
+            </div>
+
+            <div class="border border-gray-400 rounded-lg px-8 py-12
+        hover:shadow-[4px_4px_#000] cursor-pointer hover:bg-lightHover
+        hover:-translate-y-1 duration-500 dark:hover:bg-darkHover dark:hover:shadow-white
+        flex flex-col" data-aos="zoom-in" data-aos-duration="1000">
+                <img src="./images/ui-icon.png" class="w-10" alt="">
+                <h3 class="text-lg my-4 text-gray-700 dark:text-white">Frontend Development</h3>
+                <p class="text-sm text-gray-600 leading-5 dark:text-white/80">
+                    I create modern, responsive, and user-friendly interfaces using React, Tailwind CSS, and clean UI
+                    principles.
+                </p>
+                <a href="#" class="flex items-center gap-2 text-sm mt-auto pt-6">
+                    Read More
+                    <img src="./images/right-arrow.png" class="w-4" alt="">
+                </a>
+            </div>
+
+            <div class="border border-gray-400 rounded-lg px-8 py-12
+        hover:shadow-[4px_4px_#000] cursor-pointer hover:bg-lightHover
+        hover:-translate-y-1 duration-500 dark:hover:bg-darkHover dark:hover:shadow-white
+        flex flex-col" data-aos="zoom-in" data-aos-duration="1000">
+                <img src="./images/graphics-icon.png" class="w-10" alt="">
+                <h3 class="text-lg my-4 text-gray-700 dark:text-white">Deployment & Optimization</h3>
+                <p class="text-sm text-gray-600 leading-5 dark:text-white/80">
+                    I deploy and optimize web applications for performance, SEO, and production readiness using modern
+                    platforms.
+                </p>
+                <a href="#" class="flex items-center gap-2 text-sm mt-auto pt-6">
+                    Read More
+                    <img src="./images/right-arrow.png" class="w-4" alt="">
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- My work -->
+    <div id="work" class="w-full px-[12%] py-10 scroll-mt-20" data-aos="fade-up">
+        <h4 class="text-center mb-2 text-lg font-Ovo">My-PortFolio</h4>
+        <h2 class="text-center text-5xl font-Ovo">My Latest Work</h2>
+        <p class="text-center max-w-2xl mx-auto mt-5 mb-12 font-Ovo">These projects represent my hands-on learning and
+            practical experience in web development, showcasing full-stack applications built with modern tools and
+            technologies.</p>
+        <div class="grid grid-cols-auto my-10 gap-5 dark:text-black">
+            <div class="aspect-square bg-[url('./images/work-1.png')] bg-no-repeat bg-cover
+                bg-center rounded-lg relative cursor-pointer group" data-aos="zoom-in" data-aos-duration="1000">
+                <div class="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 
+                    -translate-x-1/2 py-3 px-5 flex items-center justify-between duration-500 group-hover:bottom-7
+                    ">
+                    <div>
+                        <h2 class="font-semibold">
+                            Ecommerce-Website
+                        </h2>
+                        <p class="text-sm text-gray-700">
+                            HTML, CSS, JavaScript
+                        </p>
+                    </div>
+                    <div class="border rounded-full border-black w-9 aspect-square flex
+                    items-center justify-center shadow-[2px_2px_0_#000] group-hover:bg-lime-300 transition
+                    ">
+                        <img src="./images/send-icon.png" class="w-5" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="aspect-square bg-[url('./images/work-2.png')] bg-no-repeat bg-cover
+                bg-center rounded-lg relative cursor-pointer group" data-aos="zoom-in" data-aos-duration="1000">
+                <div class="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 
+                    -translate-x-1/2 py-3 px-5 flex items-center justify-between duration-500 group-hover:bottom-7
+                    ">
+                    <div>
+                        <h2 class="font-semibold">
+                            Voting System
+                        </h2>
+                        <p class="text-sm text-gray-700">
+                            HTML, CSS, JavaScript
+                        </p>
+                    </div>
+                    <div class="border rounded-full border-black w-9 aspect-square flex
+                    items-center justify-center shadow-[2px_2px_0_#000] group-hover:bg-lime-300 transition
+                    ">
+                        <img src="./images/send-icon.png" class="w-5" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="aspect-square bg-[url('./images/work-3.png')] bg-no-repeat bg-cover
+                bg-center rounded-lg relative cursor-pointer group" data-aos="zoom-in" data-aos-duration="1000">
+                <div class="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 
+                    -translate-x-1/2 py-3 px-5 flex items-center justify-between duration-500 group-hover:bottom-7
+                    ">
+                    <div>
+                        <h2 class="font-semibold">
+                            Gemini Clone
+                        </h2>
+                        <p class="text-sm text-gray-700">
+                            HTML, CSS, JavaScript
+                        </p>
+                    </div>
+                    <div class="border rounded-full border-black w-9 aspect-square flex
+                    items-center justify-center shadow-[2px_2px_0_#000] group-hover:bg-lime-300 transition
+                    ">
+                        <img src="./images/send-icon.png" class="w-5" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="aspect-square bg-[url('./images/work-4.png')] bg-no-repeat bg-cover
+                bg-center rounded-lg relative cursor-pointer group" data-aos="zoom-in" data-aos-duration="1000">
+                <div class="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 
+                    -translate-x-1/2 py-3 px-5 flex items-center justify-between duration-500 group-hover:bottom-7
+                    ">
+                    <div>
+                        <h2 class="font-semibold">
+                            Portfolio
+                        </h2>
+                        <p class="text-sm text-gray-700">
+                            HTML, CSS, JavaScript
+                        </p>
+                    </div>
+                    <div class="border rounded-full border-black w-9 aspect-square flex
+                    items-center justify-center shadow-[2px_2px_0_#000] group-hover:bg-lime-300 transition
+                    ">
+                        <img src="./images/send-icon.png" class="w-5" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="#" class="w-max flex items-center justify-center gap-2 text-gray-700
+        border-[0.5px] border-gray-700 rounded-full py-3 px-10 mx-auto my-20 hover:bg-lightHover
+        duration-500 dark:text-white dark:border-white dark:hover:bg-darkHover">Show More
+            <img src="./images/right-arrow-bold.png" class="w-4 dark:hidden" alt="">
+            <img src="./images/right-arrow-bold-dark.png" class="w-4 hidden dark:block" alt=""></a>
+    </div>
+
+    <!-- Contact me -->
+    <div id="contact" class="w-full px-[12%] py-10 scroll-mt-20 bg-[url('./images/footer-bg-color.png')]
+     bg-no-repeat bg-[length:90%_auto] bg-center
+     dark:bg-none" data-aos="fade-up">
+        <h4 class="text-center mb-2 text-lg font-Ovo">Connect With Me</h4>
+        <h2 class="text-center text-5xl font-Ovo">Get In Touch</h2>
+        <p class="text-center max-w-2xl mx-auto mt-5 mb-12 font-Ovo"> Have a project or idea? Let’s build something
+            great together.</p>
+        <form method="post" action="https://api.web3forms.com/submit" class="max-w-2xl mx-auto">
+            <input type="hidden" name="access_key" value="3a8c9989-53a4-4385-a5c8-cb969726cc9a">
+
+            <div class="grid grid-cols-auto gap-6 mt-10 mb-8">
+                <input type="text" name="name" placeholder="Enter Your Name" class="flex-1 p-3 outline-none border-[0.5px]
+            border-gray-400 rounded-md bg-white
+            dark:bg-darkHover/30 dark:border-white/90" required>
+                <input type="email" name="email" placeholder="Enter Your Email" class="flex-1 p-3 outline-none border-[0.5px]
+            border-gray-400 rounded-md bg-white
+            dark:bg-darkHover/30 dark:border-white/90" required>
+            </div>
+            <textarea rows="6" name="message" placeholder="Enter Your Message" class="w-full p-4 outline-none border-[0.5px]
+            border-gray-400 rounded-md bg-white mb-6
+            dark:bg-darkHover/30 dark:border-white/90" required></textarea>
+
+            <button type="submit" class="py-3 px-8 w-max flex items-center justify-between gap-2
+            bg-black/80 text-white rounded-full mx-auto
+            hover:bg-black duration-500 
+            dark:bg-transparent dark:border-[0.5px] dark:hover:bg-darkHover">Send Message
+                <img src="./images/right-arrow-white.png" class="w-4" alt=""></button>
+        </form>
+    </div>
+    <!-- Footer -->
+    <div class="mt-20 ">
+        <div class="text-center">
+            <a href="#home" class="font-extrabold tracking-tight text-xl  md:text-2xl">
+                Dhushyandh<span class="text-primary dark:text-lightPrimary">.</span>
+            </a>
+            <div class="w-max flex items-center gap-2 mx-auto">
+                <img src="./images/mail_icon.png" class="w-6 dark:hidden" alt="">
+                <img src="./images/mail_icon_dark.png" class="w-6 dark:block hidden" alt="">
+                dhushyandhneduncheziyan4896@gmail.com
+            </div>
+        </div>
+        <div class="text-center sm:flex items-center justify-between border-t border-gray-400
+        mx-[10%] mt-12 py-6">
+            <p class="">© 2024 Dhushyandh. All rights reserved.</p>
+            <ul class="flex items-center gap-6 justify-center mt-4 sm:mt-0">
+
+    <li>
+        <a href="https://instagram.com/mr_d7x" target="_blank" rel="noopener noreferrer" title="Instagram"
+           class="w-10 h-10 flex items-center justify-center rounded-full
+                  border border-gray-400
+                  hover:bg-black hover:text-white
+                  transition-all duration-300
+                  dark:hover:bg-white dark:hover:text-black">
+            <i data-lucide="instagram" class="w-5 h-5"></i>
+        </a>
+    </li>
+
+    <li>
+        <a href="https://github.com/mr_d7x" target="_blank" rel="noopener noreferrer" title="GitHub"
+           class="w-10 h-10 flex items-center justify-center rounded-full
+                  border border-gray-400
+                  hover:bg-black hover:text-white
+                  transition-all duration-300
+                  dark:hover:bg-white dark:hover:text-black">
+            <i data-lucide="github" class="w-5 h-5"></i>
+        </a>
+    </li>
+
+    <li>
+        <a href="https://linkedin.com/in/mr_d7x" target="_blank" rel="noopener noreferrer" title="LinkedIn"
+           class="w-10 h-10 flex items-center justify-center rounded-full
+                  border border-gray-400
+                  hover:bg-black hover:text-white
+                  transition-all duration-300
+                  dark:hover:bg-white dark:hover:text-black">
+            <i data-lucide="linkedin" class="w-5 h-5"></i>
+        </a>
+    </li>
+
+</ul>
+
+        </div>
+        <button id="backToTop" aria-label="Back to top" class="fixed bottom-6 right-6 z-50
+         hidden
+         w-12 h-12 rounded-full
+         bg-black/80 text-white
+         items-center justify-center
+         shadow-lg
+         
+         dark:bg-white dark:text-black">
+
+            <i data-lucide="arrow-up" class="w-6 h-6"></i>
+        </button>
+
+
+    </div>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: false,
+            offset: 120,
+            easing: 'ease-in-out'
+        });
+    </script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+
+    <script src="script.js"></script>
+</body>
+
+
+</html>
