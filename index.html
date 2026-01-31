@@ -4,9 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My-PortFolio</title>
+    <meta property="og:title" content="Dhushyandh | MERN Stack Web Developer">
+    <meta property="og:description"
+        content="MERN Stack Developer building modern, scalable web applications using React, Node.js, Express, and MongoDB.">
+    <meta property="og:image" content="https://dhushyandh.me/images/og-image.png">
+    <meta property="og:url" content="https://dhushyandh.me">
+    <meta property="og:type" content="website">
+    <title>Dhushyandh</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="./tailwind.config.js"></script>
+    <link rel="icon" type="image/png" href="images/favicon.png?v=2" sizes="32x32" >
+    <link rel="shortcut icon" href="images/favicon.png?v=2">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon.png?v=2">
     <link rel="stylesheet" href="index.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,7 +30,7 @@
     </div>
     <nav class="w-full fixed px-5 lg:px-8 xl:px-[8%] py-4  flex items-center justify-between z-50">
         <div class="flex max-w-6xl items-center justify-between px-6 py-3">
-            <a href="#home" class="font-extrabold tracking-tight text-xl  md:text-2xl">
+            <a href="#top" class="font-extrabold tracking-tight text-xl  md:text-2xl">
                 Dhushyandh<span class="text-primary dark:text-lightPrimary">.</span>
             </a>
         </div>
@@ -98,7 +107,6 @@
 
         <div class="flex w-full flex-col lg:flex-row items-center gap-20 my-20">
 
-            <!-- LEFT : Image -->
             <div class="max-w-max mx-auto relative" data-aos="fade-right">
                 <img src="./images/user-image.png" class="w-64 sm:w-80 rounded-3xl max-w-none"
                     alt="Profile photo of Dhushyandh">
@@ -112,8 +120,8 @@
                 </div>
             </div>
 
-            <!-- RIGHT : Text -->
-            <div class="flex-1" data-aos="fade-left">
+
+            <div class="flex-1">
                 <p class="mb-10 max-w-2xl font-Ovo">
                     I’m a MERN Stack Web Developer and Computer Science student who enjoys building modern,
                     scalable web applications. I focus on creating clean user interfaces, efficient backend APIs,
@@ -178,7 +186,7 @@
             </div>
         </div>
     </div>
-    <!-- My Skills -->
+
     <div id="skills" class="w-full px-[12%] py-10 scroll-mt-20" data-aos="fade-up">
         <h4 class="text-center mb-2 text-lg font-Ovo">Tech I Use</h4>
         <h2 class="text-center text-5xl font-Ovo">My Skills</h2>
@@ -294,92 +302,238 @@
             practical experience in web development, showcasing full-stack applications built with modern tools and
             technologies.</p>
         <div class="grid grid-cols-auto my-10 gap-5 dark:text-black">
-            <div class="aspect-square bg-[url('./images/work-1.png')] bg-no-repeat bg-cover
-                bg-center rounded-lg relative cursor-pointer group" data-aos="zoom-in" data-aos-duration="1000">
-                <div class="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 
-                    -translate-x-1/2 py-3 px-5 flex items-center justify-between duration-500 group-hover:bottom-7
-                    ">
-                    <div>
-                        <h2 class="font-semibold">
-                            Ecommerce-Website
-                        </h2>
-                        <p class="text-sm text-gray-700">
-                            HTML, CSS, JavaScript
-                        </p>
-                    </div>
-                    <div class="border rounded-full border-black w-9 aspect-square flex
-                    items-center justify-center shadow-[2px_2px_0_#000] group-hover:bg-lime-300 transition
-                    ">
-                        <img src="./images/send-icon.png" class="w-5" alt="">
-                    </div>
+            <div class="aspect-square bg-no-repeat bg-cover bg-center rounded-lg relative group project-card"
+                style="background-image: url('https://plus.unsplash.com/premium_photo-1684785618727-378a3a5e91c5?q=80&w=1984&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')"
+                data-aos="zoom-in" data-aos-duration="1000" data-title="SmartMart"
+                data-description="E‑commerce MERN app with product catalog, cart and checkout."
+                data-repo="https://github.com/dhushyandh/SmartMart" data-live="https://smart-mart-in.onrender.com"
+                data-image="https://plus.unsplash.com/premium_photo-1684785618727-378a3a5e91c5?q=80&w=1984&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                data-tech="React,Node.js,Express,MongoDB,Stripe"
+                data-features="Product listing,Cart,Checkout,Auth,Admin">
+
+                <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-4
+        opacity-0 group-hover:opacity-100 transition">
+
+                    <a href="https://github.com/dhushyandh/SmartMart" target="_blank" rel="noopener noreferrer"
+                        title="GitHub — SmartMart" aria-label="View SmartMart on GitHub (opens in new tab)" class="bg-white p-3 rounded-full shadow
+           hover:bg-black hover:text-white transition">
+                        <i data-lucide="github" class="w-5 h-5"></i>
+                    </a>
+
+                    <a href="https://smart-mart-in.onrender.com" target="_blank" rel="noopener noreferrer"
+                        title="Live demo — SmartMart" aria-label="Open SmartMart live demo (opens in new tab)" class="bg-white p-3 rounded-full shadow
+           hover:bg-lime-400 transition">
+                        <i data-lucide="arrow-up-right" class="w-5 h-5"></i>
+                    </a>
                 </div>
             </div>
-            <div class="aspect-square bg-[url('./images/work-2.png')] bg-no-repeat bg-cover
-                bg-center rounded-lg relative cursor-pointer group" data-aos="zoom-in" data-aos-duration="1000">
-                <div class="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 
-                    -translate-x-1/2 py-3 px-5 flex items-center justify-between duration-500 group-hover:bottom-7
-                    ">
-                    <div>
-                        <h2 class="font-semibold">
-                            Voting System
-                        </h2>
-                        <p class="text-sm text-gray-700">
-                            HTML, CSS, JavaScript
-                        </p>
-                    </div>
-                    <div class="border rounded-full border-black w-9 aspect-square flex
-                    items-center justify-center shadow-[2px_2px_0_#000] group-hover:bg-lime-300 transition
-                    ">
-                        <img src="./images/send-icon.png" class="w-5" alt="">
-                    </div>
+
+            <div class="aspect-square bg-no-repeat bg-cover bg-center rounded-lg relative  group project-card"
+                style="background-image: url('https://media.istockphoto.com/id/1271034690/photo/person-voting-on-the-computer.jpg?s=2048x2048&w=is&k=20&c=32lDT1WQydAP5R0UuDLSnOK9zwAecn4rWHoKFxeYz7c=')"
+                data-aos="zoom-in" data-aos-duration="1000" data-title="Online Voting System"
+                data-description="Secure online voting platform with admin dashboard."
+                data-repo="http://github.com/dhushyandh/OVS" data-live="https://onlinevotingsystem-gexa.onrender.com/"
+                data-image="https://media.istockphoto.com/id/1271034690/photo/person-voting-on-the-computer.jpg?s=2048x2048&w=is&k=20&c=32lDT1WQydAP5R0UuDLSnOK9zwAecn4rWHoKFxeYz7c="
+                data-tech="React,Node.js,Express,MongoDB" data-features="Voter auth,Admin panel,Result dashboard">
+
+                <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-4
+        opacity-0 group-hover:opacity-100 transition">
+
+                    <a href="http://github.com/dhushyandh/OVS" target="_blank" rel="noopener noreferrer"
+                        title="GitHub — OVS" aria-label="View OVS on GitHub (opens in new tab)" class="bg-white p-3 rounded-full shadow
+           hover:bg-black hover:text-white transition">
+                        <i data-lucide="github" class="w-5 h-5"></i>
+                    </a>
+
+                    <a href="https://onlinevotingsystem-gexa.onrender.com/" target="_blank" rel="noopener noreferrer"
+                        title="Live demo — OVS" aria-label="Open OVS live demo (opens in new tab)" class="bg-white p-3 rounded-full shadow
+           hover:bg-lime-400 transition">
+                        <i data-lucide="arrow-up-right" class="w-5 h-5"></i>
+                    </a>
                 </div>
             </div>
-            <div class="aspect-square bg-[url('./images/work-3.png')] bg-no-repeat bg-cover
-                bg-center rounded-lg relative cursor-pointer group" data-aos="zoom-in" data-aos-duration="1000">
-                <div class="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 
-                    -translate-x-1/2 py-3 px-5 flex items-center justify-between duration-500 group-hover:bottom-7
-                    ">
-                    <div>
-                        <h2 class="font-semibold">
-                            Gemini Clone
-                        </h2>
-                        <p class="text-sm text-gray-700">
-                            HTML, CSS, JavaScript
-                        </p>
-                    </div>
-                    <div class="border rounded-full border-black w-9 aspect-square flex
-                    items-center justify-center shadow-[2px_2px_0_#000] group-hover:bg-lime-300 transition
-                    ">
-                        <img src="./images/send-icon.png" class="w-5" alt="">
-                    </div>
+            <div class="aspect-square bg-no-repeat bg-cover bg-center rounded-lg relative  group project-card"
+                style="background-image: url('https://images.unsplash.com/photo-1710993011904-8f1162b9806d?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')"
+                data-aos="zoom-in" data-aos-duration="1000" data-title="Gemini Clone"
+                data-description="Frontend clone demo inspired by Gemini UI patterns."
+                data-repo="https://github.com/dhushyandh/Gemini-Clone" data-live=""
+                data-image="https://images.unsplash.com/photo-1710993011904-8f1162b9806d?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                data-tech="HTML,CSS,JavaScript,React" data-features="Responsive UI,Animations,Component library">
+                <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-4
+        opacity-0 group-hover:opacity-100 transition">
+
+                    <a href="https://github.com/dhushyandh/Gemini-Clone" target="_blank" rel="noopener noreferrer"
+                        title="GitHub — Gemini Clone" aria-label="GitHub — Gemini Clone" class="bg-white p-3 rounded-full shadow
+           hover:bg-black hover:text-white transition">
+                        <i data-lucide="github" class="w-5 h-5"></i>
+                    </a>
+
+
+                    <a href="" target="_blank" rel="noopener noreferrer" title="Live demo - Gemini Clone"
+                        aria-label="Live demo - Gemini Clone" class="bg-white p-3 rounded-full shadow
+           hover:bg-lime-400 transition">
+                        <i data-lucide="arrow-up-right" class="w-5 h-5"></i>
+                    </a>
                 </div>
             </div>
-            <div class="aspect-square bg-[url('./images/work-4.png')] bg-no-repeat bg-cover
-                bg-center rounded-lg relative cursor-pointer group" data-aos="zoom-in" data-aos-duration="1000">
-                <div class="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 
-                    -translate-x-1/2 py-3 px-5 flex items-center justify-between duration-500 group-hover:bottom-7
-                    ">
-                    <div>
-                        <h2 class="font-semibold">
-                            Portfolio
-                        </h2>
-                        <p class="text-sm text-gray-700">
-                            HTML, CSS, JavaScript
-                        </p>
-                    </div>
-                    <div class="border rounded-full border-black w-9 aspect-square flex
-                    items-center justify-center shadow-[2px_2px_0_#000] group-hover:bg-lime-300 transition
-                    ">
-                        <img src="./images/send-icon.png" class="w-5" alt="">
+            <div class="aspect-square bg-no-repeat bg-cover bg-center rounded-lg relative  group project-card"
+                style="background-image: url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80')"
+                data-aos="zoom-in" data-aos-duration="1000" data-title="SmartMart (Admin)"
+                data-description="Admin dashboard for SmartMart with product and user management."
+                data-repo="https://github.com/dhushyandh/SmartMart" data-live="https://smartmart-admin.onrender.com"
+                data-image="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80"
+                data-tech="React,Node.js,Express,MongoDB" data-features="User management,Product CRUD,Analytics">
+                <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-4
+        opacity-0 group-hover:opacity-100 transition">
+
+
+                    <a href="https://github.com/dhushyandh/SmartMart" target="_blank" rel="noopener noreferrer"
+                        title="GitHub — SmartMart (admin)"
+                        aria-label="View SmartMart admin repo on GitHub (opens in new tab)" class="bg-white p-3 rounded-full shadow
+           hover:bg-black hover:text-white transition">
+                        <i data-lucide="github" class="w-5 h-5"></i>
+                    </a>
+
+                    <a href="https://smartmart-admin.onrender.com" target="_blank" rel="noopener noreferrer"
+                        title="Live demo — SmartMart Admin"
+                        aria-label="Open SmartMart admin live demo (opens in new tab)" class="bg-white p-3 rounded-full shadow
+           hover:bg-lime-400 transition">
+                        <i data-lucide="arrow-up-right" class="w-5 h-5"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="moreProjects" class="hidden grid grid-cols-auto my-10 gap-5 dark:text-black" aria-hidden="true">
+            <div class="aspect-square bg-no-repeat bg-cover bg-center rounded-lg relative group project-card"
+                style="background-image: url('https://media.istockphoto.com/id/1438125469/photo/rainy-weather-forecast-female-hand-holds-a-mobile-phone-and-looks-at-the-weather-forecast-for.jpg?s=1024x1024&w=is&k=20&c=7ng-RSeWv-znFL3fuivE8A-SChgG4o4EZh1RBM9OM5o=')"
+                data-aos="zoom-in" data-aos-duration="1000" data-title="API Integration"
+                data-description="Sample API integration project demonstrating external APIs and auth." data-repo="#"
+                data-live="https://weather-app-rgww.onrender.com"
+                data-image="https://media.istockphoto.com/id/1438125469/photo/rainy-weather-forecast-female-hand-holds-a-mobile-phone-and-looks-at-the-weather-forecast-for.jpg?s=1024x1024&w=is&k=20&c=7ng-RSeWv-znFL3fuivE8A-SChgG4o4EZh1RBM9OM5o="
+                data-tech="APIs,Html,CSS,JavaScript" data-features="Third-party APIs,Token auth,Error handling">
+                <div
+                    class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-4 opacity-0 group-hover:opacity-100 transition">
+                    <a href="#" title="View project on GitHub" aria-label="View project on GitHub"
+                        class="bg-white p-3 rounded-full shadow hover:bg-black hover:text-white transition">
+                        <i data-lucide="github" class="w-5 h-5"></i>
+                    </a>
+                    <a href="#" title="Open live demo" aria-label="Open live demo"
+                        class="bg-white p-3 rounded-full shadow hover:bg-lime-400 transition">
+                        <i data-lucide="arrow-up-right" class="w-5 h-5"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="aspect-square bg-no-repeat bg-cover bg-center rounded-lg relative group project-card"
+                style="background-image: url('https://images.unsplash.com/photo-1665808282962-9bd99d7fe3f6?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')"
+                data-aos="zoom-in" data-aos-duration="1000" data-title="Todo-List"
+                data-description="Todo-List using Mern Stavk" data-repo="#" data-live="#"
+                data-image="https://images.unsplash.com/photo-1665808282962-9bd99d7fe3f6?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                data-tech="MongoDB,Express,NodeJs,ReactJs" data-features="Listing Todo's,Update Todo's,Delete Todo's">
+                <div
+                    class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-4 opacity-0 group-hover:opacity-100 transition">
+                    <a href="#" title="View project on GitHub" aria-label="View project on GitHub"
+                        class="bg-white p-3 rounded-full shadow hover:bg-black hover:text-white transition">
+                        <i data-lucide="github" class="w-5 h-5"></i>
+                    </a>
+                    <a href="#" title="Open live demo" aria-label="Open live demo"
+                        class="bg-white p-3 rounded-full shadow hover:bg-lime-400 transition">
+                        <i data-lucide="arrow-up-right" class="w-5 h-5"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="aspect-square bg-no-repeat bg-cover bg-center rounded-lg relative group project-card"
+                style="background-image: url('https://images.unsplash.com/photo-1461749280684-dccba630e2f6?q=80&w=1469&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')"
+                data-aos="zoom-in" data-aos-duration="1000" data-title="VipStore"
+                data-description="Ecommerce-Website named VIPSTORE using MERN stack"
+                data-repo="https://github.com/dhushyandh/Ecommerce-Website/"
+                data-live="https://vipstore-ecom.onrender.com"
+                data-image="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?q=80&w=1469&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                data-tech="React,Node.js,Express,MongoDB,Stripe"
+                data-features="OAuth,Product listing,Cart,Checkout,Admin">
+                <div
+                    class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-4 opacity-0 group-hover:opacity-100 transition">
+                    <a href="#" title="View project on GitHub" aria-label="View project on GitHub"
+                        class="bg-white p-3 rounded-full shadow hover:bg-black hover:text-white transition">
+                        <i data-lucide="github" class="w-5 h-5"></i>
+                    </a>
+                    <a href="#" title="Open live demo" aria-label="Open live demo"
+                        class="bg-white p-3 rounded-full shadow hover:bg-lime-400 transition">
+                        <i data-lucide="arrow-up-right" class="w-5 h-5"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="aspect-square bg-no-repeat bg-cover bg-center rounded-lg relative group project-card"
+                style="background-image: url('https://images.unsplash.com/photo-1504639725590-34d0984388bd?auto=format&fit=crop&w=1200&q=80')"
+                data-aos="zoom-in" data-aos-duration="1000" data-title="Portfolio Website"
+                data-description="Portfolio Website " data-repo="https://github.com/dhushyandh/Portfolio"
+                data-live="https://dhushyandh.me"
+                data-image="https://images.unsplash.com/photo-1504639725590-34d0984388bd?auto=format&fit=crop&w=1200&q=80"
+                data-tech="Html, CSS, JavaScript" data-features="Design system,Responsive layouts,Prototyping">
+                <div
+                    class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-4 opacity-0 group-hover:opacity-100 transition">
+                    <a href="https://github.com/dhushyandh/Portfolio" title="View project on GitHub"
+                        aria-label="View project on GitHub"
+                        class="bg-white p-3 rounded-full shadow hover:bg-black hover:text-white transition">
+                        <i data-lucide="github" class="w-5 h-5"></i>
+                    </a>
+                    <a href="https://dhushyandh.me" title="Open live demo" aria-label="Open live demo"
+                        class="bg-white p-3 rounded-full shadow hover:bg-lime-400 transition">
+                        <i data-lucide="arrow-up-right" class="w-5 h-5"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center">
+            <button id="showMoreBtn" aria-expanded="false" class="w-max flex items-center justify-center gap-2 text-gray-700
+            border-[0.5px] border-gray-700 rounded-full py-3 px-10 mx-auto my-20 hover:bg-lightHover
+            duration-500 dark:text-white dark:border-white dark:hover:bg-darkHover">Show More
+                <img src="./images/right-arrow-bold.png" class="w-4 dark:hidden" alt="">
+                <img src="./images/right-arrow-bold-dark.png" class="w-4 hidden dark:block" alt=""></button>
+        </div>
+    </div>
+
+    <!-- Project detail modal -->
+    <div id="projectModal" class="fixed inset-0 bg-black/50 hidden items-center justify-center z-50" role="dialog"
+        aria-modal="true" aria-hidden="true">
+        <div
+            class="bg-white dark:bg-darkTheme w-11/12 max-w-4xl rounded-lg p-4 md:p-6 relative max-h-[80vh] overflow-hidden">
+            <button id="projectModalClose" aria-label="Close project details"
+                class="absolute top-4 right-4 text-gray-700 dark:text-white">✕</button>
+            <div class="flex flex-col md:flex-row gap-6 h-full">
+                <div id="modalImage"
+                    class="w-full md:w-1/2 bg-cover bg-center rounded-lg h-56 md:h-[360px] flex-shrink-0"
+                    aria-hidden="true"></div>
+                <div class="flex-1 flex flex-col min-h-0">
+                    <h3 id="modalTitle" class="text-2xl font-semibold mb-2"></h3>
+                    <p id="modalDesc" class="text-sm text-gray-700 dark:text-white/80 mb-4 overflow-auto max-h-[28vh]">
+                    </p>
+
+                    <div id="modalTech" class="mb-3 flex flex-wrap gap-2"></div>
+                    <ul id="modalFeatures"
+                        class="list-disc list-inside text-sm text-gray-600 dark:text-white/80 mb-4 max-h-[18vh] overflow-auto">
+                    </ul>
+
+                    <div class="flex items-end justify-end mt-auto">
+                        <a id="modalRepo" href="#" target="_blank" rel="noopener noreferrer"
+                            class="inline-flex items-center gap-2 px-3 py-2 bg-gray-800 text-white rounded mr-3"
+                            title="Repository" aria-label="Open repository (opens in new tab)">
+                            <i data-lucide="github" class="w-5 h-5"></i>
+                        </a>
+                        <a id="modalLive" href="#" target="_blank" rel="noopener noreferrer"
+                            class="inline-flex items-center gap-2 px-3 py-2 bg-green-600 text-white rounded"
+                            title="Live demo" aria-label="Open live demo (opens in new tab)">
+                            <i data-lucide="arrow-up-right" class="w-5 h-5"></i>
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
-        <a href="#" class="w-max flex items-center justify-center gap-2 text-gray-700
-        border-[0.5px] border-gray-700 rounded-full py-3 px-10 mx-auto my-20 hover:bg-lightHover
-        duration-500 dark:text-white dark:border-white dark:hover:bg-darkHover">Show More
-            <img src="./images/right-arrow-bold.png" class="w-4 dark:hidden" alt="">
-            <img src="./images/right-arrow-bold-dark.png" class="w-4 hidden dark:block" alt=""></a>
     </div>
 
     <!-- Contact me -->
@@ -415,7 +569,7 @@
     <!-- Footer -->
     <div class="mt-20 ">
         <div class="text-center">
-            <a href="#home" class="font-extrabold tracking-tight text-xl  md:text-2xl">
+            <a href="#top" class="font-extrabold tracking-tight text-xl  md:text-2xl">
                 Dhushyandh<span class="text-primary dark:text-lightPrimary">.</span>
             </a>
             <div class="w-max flex items-center gap-2 mx-auto">
@@ -429,40 +583,40 @@
             <p class="">© 2024 Dhushyandh. All rights reserved.</p>
             <ul class="flex items-center gap-6 justify-center mt-4 sm:mt-0">
 
-    <li>
-        <a href="https://instagram.com/mr_d7x" target="_blank" rel="noopener noreferrer" title="Instagram"
-           class="w-10 h-10 flex items-center justify-center rounded-full
+                <li>
+                    <a href="https://instagram.com/mr_d7x" target="_blank" rel="noopener noreferrer" title="Instagram"
+                        class="w-10 h-10 flex items-center justify-center rounded-full
                   border border-gray-400
                   hover:bg-black hover:text-white
                   transition-all duration-300
                   dark:hover:bg-white dark:hover:text-black">
-            <i data-lucide="instagram" class="w-5 h-5"></i>
-        </a>
-    </li>
+                        <i data-lucide="instagram" class="w-5 h-5"></i>
+                    </a>
+                </li>
 
-    <li>
-        <a href="https://github.com/mr_d7x" target="_blank" rel="noopener noreferrer" title="GitHub"
-           class="w-10 h-10 flex items-center justify-center rounded-full
+                <li>
+                    <a href="https://github.com/dhushyandh" target="_blank" rel="noopener noreferrer" title="GitHub"
+                        class="w-10 h-10 flex items-center justify-center rounded-full
                   border border-gray-400
                   hover:bg-black hover:text-white
                   transition-all duration-300
                   dark:hover:bg-white dark:hover:text-black">
-            <i data-lucide="github" class="w-5 h-5"></i>
-        </a>
-    </li>
+                        <i data-lucide="github" class="w-5 h-5"></i>
+                    </a>
+                </li>
 
-    <li>
-        <a href="https://linkedin.com/in/mr_d7x" target="_blank" rel="noopener noreferrer" title="LinkedIn"
-           class="w-10 h-10 flex items-center justify-center rounded-full
+                <li>
+                    <a href="https://www.linkedin.com/in/dhushyandh-n-0446062a5" target="_blank"
+                        rel="noopener noreferrer" title="LinkedIn" class="w-10 h-10 flex items-center justify-center rounded-full
                   border border-gray-400
                   hover:bg-black hover:text-white
                   transition-all duration-300
                   dark:hover:bg-white dark:hover:text-black">
-            <i data-lucide="linkedin" class="w-5 h-5"></i>
-        </a>
-    </li>
+                        <i data-lucide="linkedin" class="w-5 h-5"></i>
+                    </a>
+                </li>
 
-</ul>
+            </ul>
 
         </div>
         <button id="backToTop" aria-label="Back to top" class="fixed bottom-6 right-6 z-50
