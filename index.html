@@ -4,18 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Dhushyandh is a MERN Stack Web Developer based in India specializing in React, Node.js, Express, and MongoDB. View projects and contact for freelance or job opportunities.">
+    <meta name="keywords" content="Dhushyandh, Dhushy, MERN Stack Developer, Web Developer India, React Developer, Node.js Developer, Portfolio">
     <meta property="og:title" content="Dhushyandh | MERN Stack Web Developer">
-    <meta property="og:description"
-        content="MERN Stack Developer building modern, scalable web applications using React, Node.js, Express, and MongoDB.">
+    <meta property="og:description" content="Modern full-stack web applications built using React, Node.js, Express & MongoDB.">
     <meta property="og:image" content="https://dhushyandh.me/images/og-image.png">
     <meta property="og:url" content="https://dhushyandh.me">
     <meta property="og:type" content="website">
     <title>Dhushyandh</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="./tailwind.config.js"></script>
-    <link rel="icon" type="image/png" href="images/favicon.png?v=2" sizes="32x32">
-    <link rel="shortcut icon" href="images/favicon.png?v=2">
-    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon.png?v=2">
+    <link rel="icon" type="image/png" href="/images/favicon.png?v=2" sizes="32x32">
+    <link rel="shortcut icon" href="/images/favicon.png?v=2">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.png?v=2">
     <link rel="stylesheet" href="index.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,11 +30,24 @@
 
         gtag('config', 'G-B04T18BJG1');
     </script>
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "Dhushyandh",
+            "url": "https://dhushyandh.me",
+            "jobTitle": "MERN Stack Developer",
+            "sameAs": [
+                "https://github.com/yourgithub",
+                "https://linkedin.com/in/yourlinkedin"
+            ]
+        }
+        </script>
 </head>
 
 <body class="overflow-x-hidden font-Outfit leading-8 dark:bg-darkTheme dark:text-white">
     <div class="fixed top-0 right-0 w-11/12 -z-10 translate-y-[-80%] dark:hidden">
-        <img src="./images/header-bg-color.png" class="w-full h-48" alt="">
+        <img src="./images/header-bg-color.png" class="w-full h-48" alt="Decorative header background">
     </div>
     <nav class="w-full fixed px-5 lg:px-8 xl:px-[8%] py-4  flex items-center justify-between z-50">
         <div class="flex max-w-6xl items-center justify-between px-6 py-3">
@@ -52,17 +66,17 @@
         </ul>
         <div class="flex items-center gap-4">
             <button title="Toggle theme" onclick="toggleTheme()" aria-label="Toggle theme">
-                <img src="./images/moon_icon.png" class="w-6 dark:hidden" alt="">
-                <img src="./images/sun_icon.png" class="w-6 hidden dark:block" alt="">
+                <img src="./images/moon_icon.png" class="w-6 dark:hidden" alt="Toggle theme (moon)">
+                <img src="./images/sun_icon.png" class="w-6 hidden dark:block" alt="Toggle theme (sun)">
             </button>
             <a class="hidden lg:flex items-center gap-3 px-10 py-2.5 border border-gray-500 rounded-full ml-4 font-Ovo
             dark:border-white/50 " href="#contact">Contact
-                <img class="w-3 dark:hidden" src="./images/arrow-icon.png" alt="">
-                <img class="w-3 hidden dark:block" src="./images/arrow-icon-dark.png" alt=""></a>
+                <img class="w-3 dark:hidden" src="./images/arrow-icon.png" alt="Right arrow">
+                <img class="w-3 hidden dark:block" src="./images/arrow-icon-dark.png" alt="Right arrow"></a>
 
             <button class="block md:hidden ml-3" aria-label="Open menu" onclick="openMenu()">
-                <img src="./images/menu-black.png" class="w-6 cursor-pointer dark:hidden" alt="">
-                <img src="./images/menu-white.png" class="w-6 cursor-pointer hidden dark:block" alt="">
+                <img src="./images/menu-black.png" class="w-6 cursor-pointer dark:hidden" alt="Open menu">
+                <img src="./images/menu-white.png" class="w-6 cursor-pointer hidden dark:block" alt="Open menu">
             </button>
         </div>
         <!-- Mobile menu button -->
@@ -71,8 +85,8 @@
         dark:bg-darkHover dark:text-white">
             <li class="absolute right-6 top-6">
                 <button onclick="closeMenu()" aria-label="Close menu">
-                    <img src="./images/close-black.png" class="w-5 cursor-pointer dark:hidden" alt="">
-                    <img src="./images/close-white.png" class="w-5 cursor-pointer hidden dark:block" alt="">
+                    <img src="./images/close-black.png" class="w-5 cursor-pointer dark:hidden" alt="Close menu">
+                    <img src="./images/close-white.png" class="w-5 cursor-pointer hidden dark:block" alt="Close menu">
                 </button>
             </li>
             <li><a onclick="closeMenu()" href="#top">Home</a></li>
@@ -86,7 +100,7 @@
     <div
         class="w-11/12 max-w-3xl text-center mb-16 mx-auto min-h-screen flex flex-col items-center justify-center gap-4">
 
-        <img src="./images/user-image.png" class="rounded-full w-40 mt-10 h-40 sm:w-52 sm:h-52" alt=""
+        <img src="./images/user-image.png" class="rounded-full w-40 mt-10 h-40 sm:w-52 sm:h-52" alt="Dhushyandh MERN Stack Developer"
             data-aos="zoom-in" data-aos-duration="1000">
         <h3 class="flex items-center gap-2 text-xl md:text-2xl mb-3 font-Ovo" data-aos="fade-left">Hi, Im Dhushyandh!
             <img src="./images/hand-icon.png" class="w-6" alt="">
@@ -101,10 +115,10 @@
         <div class="flex flex-col sm:flex-row items-center gap-4 mt-4" data-aos="zoom-in" data-aos-duration="1000">
             <a class="px-10 py-3 border  text-white rounded-full bg-gradient-to-t from-[#b820e6] to-[#da7d20] text-wrap flex items-center gap-2 dark:bg-transparent"
                 href="#contact">Contact Me
-                <img src="./images/right-arrow-white.png" class="w-4" alt=""></a>
+                <img src="./images/right-arrow-white.png" class="w-4" alt="Right arrow icon"></a>
             <a class="px-10 py-3 border rounded-full border-gray-500 bg-white flex items-center gap-2
              dark:text-black" href="./resume/Resume - N Dhushyandh.pdf" download>My Resume
-                <img src="./images/download-icon.png" class="w-4" alt=""></a>
+                <img src="./images/download-icon.png" class="w-4" alt="Download resume icon"></a>
         </div>
     </div>
     <!-- About me -->
