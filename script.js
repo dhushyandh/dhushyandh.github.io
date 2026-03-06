@@ -79,10 +79,9 @@ backToTopBtn.addEventListener("click", () => {
 });
 
 
-const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
 const savedTheme = localStorage.theme;
 
-if (savedTheme === "dark" || (!savedTheme && prefersDark)) {
+if (savedTheme === "dark") {
     document.documentElement.classList.add("dark");
 }
 
@@ -143,7 +142,6 @@ function openProjectModal(data) {
         modalLive.setAttribute('aria-disabled', 'true');
     }
 
-    // Populate tech badges
     if (modalTech) {
         modalTech.innerHTML = '';
         if (data.tech) {
@@ -181,9 +179,8 @@ function closeProjectModal() {
     projectModal.setAttribute('aria-hidden', 'true');
 }
 
-// Attach to project cards
 document.querySelectorAll('.project-card').forEach(card => {
-    // prevent inner link clicks from triggering the card handler
+
     card.querySelectorAll('a').forEach(a => a.addEventListener('click', e => e.stopPropagation()));
 
     card.addEventListener('click', () => {
@@ -197,11 +194,9 @@ document.querySelectorAll('.project-card').forEach(card => {
             features: card.dataset.features
         };
 
-        // fallback to computed background-image if data-image not set or is empty
         if (!data.image) {
             const bg = window.getComputedStyle(card).backgroundImage;
             if (bg && bg !== 'none') {
-                // bg is like: url("https://...")
                 const url = bg.replace(/^url\((?:\"|')?/, '').replace(/(?:\"|')?\)$/, '');
                 data.image = url;
             }
