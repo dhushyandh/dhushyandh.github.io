@@ -490,19 +490,19 @@
 
             <div class="aspect-square bg-no-repeat bg-cover bg-center rounded-lg relative group project-card"
                 style="background-image: url('https://images.unsplash.com/photo-1504639725590-34d0984388bd?auto=format&fit=crop&w=1200&q=80')"
-                data-aos="zoom-in" data-aos-duration="1000" data-title="Portfolio Website"
-                data-description="Portfolio Website " data-repo="https://github.com/dhushyandh/Portfolio"
-                data-live="https://dhushyandh.me"
+                data-aos="zoom-in" data-aos-duration="1000" data-title="Authentication App"
+                data-description="Portfolio Website " data-repo="https://github.com/dhushyandh/authentication"
+                data-live="https://auth-c3n9.onrender.com/"
                 data-image="https://images.unsplash.com/photo-1504639725590-34d0984388bd?auto=format&fit=crop&w=1200&q=80"
-                data-tech="Html, CSS, JavaScript" data-features="Design system,Responsive layouts,Prototyping">
+                data-tech="React,Nodejs,ExpressJs,Mongodb,Oauth,Firebase" data-features="User registration,Login,OAuth,Protected routes">
                 <div
                     class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-4 opacity-0 group-hover:opacity-100 transition">
-                    <a href="https://github.com/dhushyandh/Portfolio" title="View project on GitHub"
+                    <a href="https://github.com/dhushyandh/authentication" title="View project on GitHub"
                         aria-label="View project on GitHub"
                         class="bg-white p-3 rounded-full shadow hover:bg-black hover:text-white transition">
                         <i data-lucide="github" class="w-5 h-5"></i>
                     </a>
-                    <a href="https://dhushyandh.me" title="Open live demo" aria-label="Open live demo"
+                    <a href="https://auth-c3n9.onrender.com/" title="Open live demo" aria-label="Open live demo"
                         class="bg-white p-3 rounded-full shadow hover:bg-lime-400 transition">
                         <i data-lucide="arrow-up-right" class="w-5 h-5"></i>
                     </a>
@@ -605,34 +605,34 @@
             <ul class="flex items-center gap-6 justify-center mt-4 sm:mt-0">
 
                 <li>
-                    <a href="https://instagram.com/mr_d7x" target="_blank" rel="noopener noreferrer" title="Instagram"
-                        class="w-10 h-10 flex items-center justify-center rounded-full
-                  border border-gray-400
-                  hover:bg-black hover:text-white
-                  transition-all duration-300
-                  dark:hover:bg-white dark:hover:text-black">
+                        <a href="https://instagram.com/mr_d7x" target="_blank" rel="noopener noreferrer" title="Instagram"
+                            class="w-10 h-10 flex items-center justify-center rounded-full
+                        border border-gray-400
+                        hover:bg-black hover:text-white
+                        transition-all duration-300
+                        dark:hover:bg-white dark:hover:text-black text-gray-800 dark:text-white">
                         <i data-lucide="instagram" class="w-5 h-5"></i>
                     </a>
                 </li>
 
                 <li>
-                    <a href="https://github.com/dhushyandh" target="_blank" rel="noopener noreferrer" title="GitHub"
-                        class="w-10 h-10 flex items-center justify-center rounded-full
-                  border border-gray-400
-                  hover:bg-black hover:text-white
-                  transition-all duration-300
-                  dark:hover:bg-white dark:hover:text-black">
+                                        <a href="https://github.com/dhushyandh" target="_blank" rel="noopener noreferrer" title="GitHub"
+                                                class="w-10 h-10 flex items-center justify-center rounded-full
+                                    border border-gray-400
+                                    hover:bg-black hover:text-white
+                                    transition-all duration-300
+                                    dark:hover:bg-white dark:hover:text-black text-gray-800 dark:text-white">
                         <i data-lucide="github" class="w-5 h-5"></i>
                     </a>
                 </li>
 
                 <li>
-                    <a href="https://www.linkedin.com/in/dhushyandh-n-0446062a5" target="_blank"
-                        rel="noopener noreferrer" title="LinkedIn" class="w-10 h-10 flex items-center justify-center rounded-full
-                  border border-gray-400
-                  hover:bg-black hover:text-white
-                  transition-all duration-300
-                  dark:hover:bg-white dark:hover:text-black">
+                                        <a href="https://www.linkedin.com/in/dhushyandh" target="_blank"
+                                                rel="noopener noreferrer" title="LinkedIn" class="w-10 h-10 flex items-center justify-center rounded-full
+                                    border border-gray-400
+                                    hover:bg-black hover:text-white
+                                    transition-all duration-300
+                                    dark:hover:bg-white dark:hover:text-black text-gray-800 dark:text-white">
                         <i data-lucide="linkedin" class="w-5 h-5"></i>
                     </a>
                 </li>
@@ -663,10 +663,9 @@
             easing: 'ease-in-out'
         });
     </script>
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <script>
-        lucide.createIcons();
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/lucide.min.js"
+        onload="window.__lucideLoaded=true; try{ if(window.lucide && typeof lucide.createIcons==='function') lucide.createIcons(); }catch(e){console.warn('lucide createIcons onload failed', e);}"
+        onerror="console.error('lucide CDN failed to load'); window.__lucideFailed = true;"></script>
 
     <script src="script.js"></script>
 </body>

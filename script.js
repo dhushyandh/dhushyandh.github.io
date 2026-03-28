@@ -12,6 +12,17 @@ const modalLive = document.getElementById('modalLive');
 const modalTech = document.getElementById('modalTech');
 const modalFeatures = document.getElementById('modalFeatures');
 
+// Safe icon initializer — guards against lucide not being loaded.
+function safeCreateIcons() {
+    if (window.lucide && typeof lucide.createIcons === 'function') {
+        try {
+            lucide.createIcons();
+        } catch (err) {
+            console.warn('lucide.createIcons() failed:', err);
+        }
+    }
+}
+
 function openMenu() {
     sideMenu.style.transform = 'translateX(-16rem)';
 }
@@ -62,8 +73,7 @@ window.addEventListener('scroll', () => {
         backToTopBtn.classList.remove("hidden");
         backToTopBtn.classList.add("flex");
 
-
-        lucide.createIcons();
+        safeCreateIcons();
     } else {
         backToTopBtn.classList.add("hidden");
         backToTopBtn.classList.remove("flex");
@@ -91,7 +101,7 @@ function toggleTheme() {
     localStorage.theme = document.documentElement.classList.contains("dark")
         ? "dark"
         : "light";
-    lucide.createIcons();
+    safeCreateIcons();
 }
 
 
@@ -111,7 +121,7 @@ if (showMoreBtn && moreProjects) {
             showMoreBtn.setAttribute('aria-expanded', 'true');
             showMoreBtn.textContent = 'Show Less';
 
-            lucide.createIcons();
+            safeCreateIcons();
         }
     });
 }
@@ -170,7 +180,7 @@ function openProjectModal(data) {
     projectModal.classList.add('flex');
     projectModal.setAttribute('aria-hidden', 'false');
     projectModalClose.focus();
-    lucide.createIcons();
+    safeCreateIcons();
 }
 
 function closeProjectModal() {
@@ -213,5 +223,49 @@ projectModal?.addEventListener('click', (e) => {
 window.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && projectModal && !projectModal.classList.contains('hidden')) {
         closeProjectModal();
+    }
+});
+
+if (window.lucide && typeof lucide.createIcons === 'function') {
+    try {
+        lucide.createIcons();
+    } catch (err) {
+        console.warn('lucide.createIcons() failed:', err);
+    }
+} else {
+    document.addEventListener('DOMContentLoaded', () => {
+        if (window.lucide && typeof lucide.createIcons === 'function') {
+            try {
+                lucide.createIcons();
+            } catch (err) {
+                console.warn('lucide.createIcons() failed on DOMContentLoaded:', err);
+            }
+        }
+    });
+}
+// Final safety: try once more after full load
+window.addEventListener('load', () => {
+    safeCreateIcons();
+});
+
+// Fallback renderer: if lucide failed to load, replace <i data-lucide> with simple text/icon
+window.addEventListener('load', () => {
+    if (window.__lucideFailed) {
+        const map = {
+            github: 'GH',
+            instagram: 'IG',
+            linkedin: 'IN',
+            'arrow-up': '↑',
+            'arrow-up-right': '↗'
+        };
+        document.querySelectorAll('i[data-lucide]').forEach(i => {
+            const name = i.getAttribute('data-lucide');
+            const txt = map[name] || name || '';
+            const span = document.createElement('span');
+            span.className = 'inline-block';
+            span.textContent = txt;
+            i.replaceWith(span);
+        });
+        console.warn('Lucide failed to load — applied simple text fallbacks for icons.');
     }
 });
