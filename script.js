@@ -11,6 +11,14 @@ const modalRepo = document.getElementById('modalRepo');
 const modalLive = document.getElementById('modalLive');
 const modalTech = document.getElementById('modalTech');
 const modalFeatures = document.getElementById('modalFeatures');
+const certificateModal = document.getElementById('certificateModal');
+const certificateModalClose = document.getElementById('certificateModalClose');
+const certificateModalPreview = document.getElementById('certificateModalPreview');
+const certificateModalTitle = document.getElementById('certificateModalTitle');
+const certificateModalMeta = document.getElementById('certificateModalMeta');
+const certificateModalDesc = document.getElementById('certificateModalDesc');
+const certificateModalView = document.getElementById('certificateModalView');
+const certificateModalDownload = document.getElementById('certificateModalDownload');
 
 // Safe icon initializer — guards against lucide not being loaded.
 function safeCreateIcons() {
@@ -189,6 +197,72 @@ function closeProjectModal() {
     projectModal.setAttribute('aria-hidden', 'true');
 }
 
+function openCertificateModal(data) {
+    const certificateFileUrl = data.file ? new URL(encodeURI(data.file), window.location.href).href : '';
+
+    if (certificateModalTitle) certificateModalTitle.textContent = data.title || '';
+    if (certificateModalMeta) certificateModalMeta.textContent = `${data.issuer || ''}${data.year ? ` • ${data.year}` : ''}`;
+    if (certificateModalDesc) certificateModalDesc.textContent = data.description || '';
+
+    if (certificateModalPreview) {
+        certificateModalPreview.innerHTML = '';
+        const isPdfPreview = typeof data.preview === 'string' && data.preview.toLowerCase().includes('.pdf');
+
+        if (data.preview && isPdfPreview) {
+            certificateModalPreview.style.backgroundImage = 'none';
+            certificateModalPreview.classList.remove('flex', 'items-center', 'justify-center', 'text-white', 'font-semibold', 'text-lg');
+            const pdf = document.createElement('object');
+            pdf.setAttribute('data', `${data.preview}#page=1&view=FitH&toolbar=0&navpanes=0&scrollbar=0`);
+            pdf.setAttribute('type', 'application/pdf');
+            pdf.className = 'w-full h-full rounded-lg bg-white dark:bg-gray-900';
+            certificateModalPreview.appendChild(pdf);
+        } else if (data.preview) {
+            certificateModalPreview.style.backgroundImage = `url(${data.preview})`;
+            certificateModalPreview.textContent = '';
+            certificateModalPreview.classList.remove('flex', 'items-center', 'justify-center', 'text-white', 'font-semibold', 'text-lg');
+        } else {
+            certificateModalPreview.style.backgroundImage = 'linear-gradient(135deg, #5b21b6, #9333ea)';
+            certificateModalPreview.textContent = 'Certificate Preview';
+            certificateModalPreview.classList.add('flex', 'items-center', 'justify-center', 'text-white', 'font-semibold', 'text-lg');
+        }
+    }
+
+    if (certificateModalView) {
+        if (certificateFileUrl) {
+            certificateModalView.href = certificateFileUrl;
+            certificateModalView.classList.remove('opacity-50', 'pointer-events-none');
+            certificateModalView.removeAttribute('aria-disabled');
+        } else {
+            certificateModalView.href = '#';
+            certificateModalView.classList.add('opacity-50', 'pointer-events-none');
+            certificateModalView.setAttribute('aria-disabled', 'true');
+        }
+    }
+
+    if (certificateModalDownload) {
+        if (certificateFileUrl) {
+            certificateModalDownload.href = certificateFileUrl;
+            certificateModalDownload.classList.remove('opacity-50', 'pointer-events-none');
+            certificateModalDownload.removeAttribute('aria-disabled');
+        } else {
+            certificateModalDownload.href = '#';
+            certificateModalDownload.classList.add('opacity-50', 'pointer-events-none');
+            certificateModalDownload.setAttribute('aria-disabled', 'true');
+        }
+    }
+
+    certificateModal?.classList.remove('hidden');
+    certificateModal?.classList.add('flex');
+    certificateModal?.setAttribute('aria-hidden', 'false');
+    certificateModalClose?.focus();
+}
+
+function closeCertificateModal() {
+    certificateModal?.classList.add('hidden');
+    certificateModal?.classList.remove('flex');
+    certificateModal?.setAttribute('aria-hidden', 'true');
+}
+
 document.querySelectorAll('.project-card').forEach(card => {
 
     card.querySelectorAll('a').forEach(a => a.addEventListener('click', e => e.stopPropagation()));
@@ -216,13 +290,34 @@ document.querySelectorAll('.project-card').forEach(card => {
     });
 });
 
+document.querySelectorAll('.certificate-card').forEach(card => {
+    card.addEventListener('click', () => {
+        const data = {
+            title: card.dataset.title,
+            issuer: card.dataset.issuer,
+            year: card.dataset.year,
+            description: card.dataset.description,
+            preview: card.dataset.preview,
+            file: card.dataset.file
+        };
+        openCertificateModal(data);
+    });
+});
+
 projectModalClose?.addEventListener('click', closeProjectModal);
 projectModal?.addEventListener('click', (e) => {
     if (e.target === projectModal) closeProjectModal();
 });
+certificateModalClose?.addEventListener('click', closeCertificateModal);
+certificateModal?.addEventListener('click', (e) => {
+    if (e.target === certificateModal) closeCertificateModal();
+});
 window.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && projectModal && !projectModal.classList.contains('hidden')) {
         closeProjectModal();
+    }
+    if (e.key === 'Escape' && certificateModal && !certificateModal.classList.contains('hidden')) {
+        closeCertificateModal();
     }
 });
 
