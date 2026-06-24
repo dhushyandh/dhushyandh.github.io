@@ -927,7 +927,11 @@
             onload="window.__lucideLoaded=true; try{ if(window.lucide && typeof lucide.createIcons==='function') lucide.createIcons(); }catch(e){console.warn('lucide createIcons onload failed', e);}"
             onerror="console.error('lucide CDN failed to load'); window.__lucideFailed = true;"></script>
 
-</script>
+    <script>
+        // Optional production configuration: set the chat API URL if the backend is hosted separately.
+        // Example: window.CHAT_API_URL = 'https://chat-api.dhushyandh.me/chat';
+        // window.CHAT_API_URL = window.CHAT_API_URL || '';
+    </script>
 
     <!-- Chat widget (closed by default) -->
     <div id="chat-widget" class="fixed right-6 bottom-24 w-80 md:w-96 z-50 hidden">

@@ -403,9 +403,10 @@ async function sendMessage(optMessage) {
     if (!optMessage && chatInput) chatInput.value = '';
 
         try {
-            const apiUrl = window.location.hostname === 'localhost' || window.location.hostname === 'https://dhushyandh.me'
+            const apiUrl = window.CHAT_API_URL || ((window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
                 ? 'http://localhost:5000/chat'
-                : `${window.location.origin}/chat`;
+                : `${window.location.origin}/chat`);
+            console.info('Chat API URL:', apiUrl);
             const res = await fetch(apiUrl, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
