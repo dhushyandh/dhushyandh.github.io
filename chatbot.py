@@ -47,15 +47,15 @@ class PortfolioAssistant:
 
         # About
         if self._matches_phrase(raw_text, ["who are you", "about yourself"]) or self._has_words(processed_text, ["who", "you"]):
-            return {"text": "Virtual portfolio assistant for Dhushyandh.", "options": []}
+            return {"text": "I'm  Dhushyandh.", "options": []}
 
         # Name
         if self._matches_phrase(raw_text, ["your name"]) or processed_text.strip() == "name":
-            return {"text": "Dhushyandh Portfolio Assistant.", "options": []}
+            return {"text": "Dhushyandh N.", "options": []}
 
         # Skills
         if self._has_words(processed_text, ["skill"]) or self._has_words(processed_text, ["technology"]):
-            return {"text": "Frontend: HTML, CSS, JS, React, Tailwind; Backend: Node, Express; DB: MongoDB; Languages: Python, Java; Cloud: AWS, Azure.", "options": []}
+            return {"text": "Frontend: HTML, CSS, JS, React, Tailwind;\n Backend: Node, Express;\n DB: MongoDB;\n Languages: Python, Java;\n Cloud: AWS, Azure.", "options": []}
 
         # Projects
         if self._has_words(processed_text, ["project"]):
@@ -75,7 +75,7 @@ class PortfolioAssistant:
 
         # Education
         if self._has_words(processed_text, ["education"]) or self._has_words(processed_text, ["college"]):
-            return {"text": "B.E. — Computer Science Engineering.", "options": []}
+            return {"text": "I'm Currently pursuing B.E. — Computer Science Engineering.", "options": []}
 
         # Experience
         if self._has_words(processed_text, ["experience"]) or self._has_words(processed_text, ["internship"]):
@@ -87,11 +87,11 @@ class PortfolioAssistant:
 
         # Resume
         if self._has_words(processed_text, ["resume"]):
-            return {"text": "Resume: available on the portfolio (download link).", "options": []}
+            return {"text": "Resume: available on the portfolio (download link: https://dhushyandh.me/resume/Dhushyandh_Resume.pdf).", "options": []}
 
         # Contact
         if self._has_words(processed_text, ["contact"]):
-            return {"text": "Contact: GitHub / LinkedIn / Portfolio links available on the site.", "options": []}
+            return {"text": "Contact:\n GitHub: https://github.com/dhushyandh \n LinkedIn: https://linkedin.com/in/dhushyandh \n Portfolio: https://dhushyandh.me\n Mobile: +91 9342763553", "options": []}
 
         # Goodbye
         if self._matches_phrase(raw_text, ["bye", "goodbye", "exit"]):

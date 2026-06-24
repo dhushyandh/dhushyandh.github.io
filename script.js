@@ -403,14 +403,17 @@ async function sendMessage(optMessage) {
     if (!optMessage && chatInput) chatInput.value = '';
 
         try {
-            const apiUrl = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+            const apiUrl = window.location.hostname === 'localhost' || window.location.hostname === 'https://dhushyandh.me'
                 ? 'http://localhost:5000/chat'
-                : '/chat';
+                : `${window.location.origin}/chat`;
             const res = await fetch(apiUrl, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ message: msg })
             });
+            if (!res.ok) {
+                throw new Error(`Chat API returned ${res.status} ${res.statusText}`);
+            }
             const data = await res.json();
             const resp = data.response;
             if (!resp) {
