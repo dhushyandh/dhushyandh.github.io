@@ -364,3 +364,151 @@ window.addEventListener('load', () => {
         console.warn('Lucide failed to load — applied simple text fallbacks for icons.');
     }
 });
+
+// Chat widget logic: sends user message to Flask backend at /chat
+const chatBox = document.getElementById('chat-box');
+const chatInput = document.getElementById('chat-input');
+const chatSend = document.getElementById('chat-send');
+const chatWidget = document.getElementById('chat-widget');
+const chatToggle = document.getElementById('chat-toggle');
+const chatFloatingClose = document.getElementById('chat-floating-close');
+const chatHeaderClose = document.getElementById('chat-close');
+const chatClear = document.getElementById('chat-clear');
+
+function appendMessage(text, from = 'bot') {
+    if (!chatBox) return;
+    const wrap = document.createElement('div');
+    wrap.className = from === 'user' ? 'flex justify-end' : 'flex justify-start';
+
+    const bubble = document.createElement('div');
+    if (from === 'user') {
+        bubble.className = 'inline-block px-3 py-2 rounded-full text-sm text-white' ;
+        bubble.style.background = 'linear-gradient(90deg,#b820e6,#7b20e6)';
+        bubble.textContent = text;
+    } else {
+        bubble.className = 'inline-block max-w-full bg-white rounded-xl p-3 shadow-sm text-sm text-gray-800';
+        // allow multiline and preserve newlines
+        bubble.innerHTML = text.replace(/\n/g, '<br>');
+    }
+
+    wrap.appendChild(bubble);
+    chatBox.appendChild(wrap);
+    chatBox.scrollTop = chatBox.scrollHeight;
+}
+
+async function sendMessage(optMessage) {
+    const msg = (optMessage || chatInput?.value || '').trim();
+    if (!msg) return;
+    appendMessage(msg, 'user');
+    if (!optMessage && chatInput) chatInput.value = '';
+
+        try {
+            const apiUrl = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+                ? 'http://localhost:5000/chat'
+                : '/chat';
+            const res = await fetch(apiUrl, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ message: msg })
+            });
+            const data = await res.json();
+            const resp = data.response;
+            if (!resp) {
+                appendMessage('No response from server', 'bot');
+            } else if (typeof resp === 'string') {
+                appendMessage(resp, 'bot');
+            } else if (typeof resp === 'object') {
+                appendMessage(resp.text || '', 'bot');
+                if (Array.isArray(resp.options) && resp.options.length) {
+                    renderOptions(resp.options);
+                }
+            } else {
+                appendMessage(String(resp), 'bot');
+            }
+    } catch (err) {
+        appendMessage('Error: could not reach chat server', 'bot');
+        console.error('Chat error', err);
+    }
+}
+
+// Render radio-style options inside the chat as a bot message
+function renderOptions(options) {
+    if (!chatBox || !options || !options.length) return;
+    const wrap = document.createElement('div');
+    wrap.className = 'text-left';
+
+    const container = document.createElement('div');
+    container.className = 'inline-block px-3 py-2 rounded-lg bg-gray-100 text-black';
+
+    const form = document.createElement('form');
+    form.className = 'flex flex-col gap-2';
+
+    options.forEach((opt, idx) => {
+        const id = `chat-opt-${Date.now()}-${idx}`;
+        const label = document.createElement('label');
+        label.className = 'flex items-center gap-2 text-sm cursor-pointer';
+
+        const input = document.createElement('input');
+        input.type = 'radio';
+        input.name = 'chatOptions';
+        input.value = opt;
+        input.id = id;
+        input.className = 'mr-2';
+        input.addEventListener('change', () => {
+            // send selected option text
+            sendMessage(opt);
+            // remove options UI after selection
+            wrap.remove();
+        });
+
+        const span = document.createElement('span');
+        span.textContent = opt;
+
+        label.appendChild(input);
+        label.appendChild(span);
+        form.appendChild(label);
+    });
+
+    container.appendChild(form);
+    wrap.appendChild(container);
+    chatBox.appendChild(wrap);
+    chatBox.scrollTop = chatBox.scrollHeight;
+}
+
+function clearChat() {
+    if (!chatBox) return;
+    chatBox.innerHTML = '';
+    if (chatInput) {
+        chatInput.value = '';
+        chatInput.focus();
+    }
+}
+
+if (chatSend) chatSend.addEventListener('click', () => sendMessage());
+if (chatInput) chatInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') sendMessage(); });
+if (chatClear) chatClear.addEventListener('click', clearChat);
+
+// Open widget using toggle button
+if (chatToggle) {
+    chatToggle.addEventListener('click', () => {
+        chatWidget?.classList.remove('hidden');
+        chatToggle.classList.add('hidden');
+        // send greeting to populate options
+        sendMessage('hi');
+    });
+}
+
+// Close widget handlers
+if (chatFloatingClose) {
+    chatFloatingClose.addEventListener('click', () => {
+        chatWidget?.classList.add('hidden');
+        chatToggle?.classList.remove('hidden');
+    });
+}
+
+if (chatHeaderClose) {
+    chatHeaderClose.addEventListener('click', () => {
+        chatWidget?.classList.add('hidden');
+        chatToggle?.classList.remove('hidden');
+    });
+}
