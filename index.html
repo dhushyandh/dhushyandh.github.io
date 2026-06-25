@@ -931,6 +931,8 @@
         // Optional production configuration: set the chat API URL if the backend is hosted separately.
         // Example: window.CHAT_API_URL = 'https://chat-api.dhushyandh.me/chat';
         // window.CHAT_API_URL = window.CHAT_API_URL || '';
+        // Enable a local static fallback if the deployed backend is unavailable.
+        window.USE_STATIC_CHAT_FALLBACK = true;
     </script>
 
     <!-- Chat widget (closed by default) -->
@@ -941,8 +943,8 @@
                     <button id="chat-back" aria-label="Back" class="text-white text-xl">‹</button>
                     <img src="./images/dhushy.png" alt="Dhushy" class="w-10 h-10 rounded-full border-2 border-white">
                     <div class="text-white">
-                        <div class="text-sm font-semibold">Mini</div>
-                        <div class="text-xs opacity-90">To help learners with their queries</div>
+                        <div class="text-sm font-semibold">AI Assistant</div>
+                        <!-- <div class="text-xs opacity-90">To help learners with their queries</div> -->
                     </div>
                 </div>
                 <div class="flex items-center gap-2">

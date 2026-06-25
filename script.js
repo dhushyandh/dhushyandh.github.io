@@ -396,6 +396,64 @@ function appendMessage(text, from = 'bot') {
     chatBox.scrollTop = chatBox.scrollHeight;
 }
 
+function normalizeChatMessage(text) {
+    return (text || '').trim().toLowerCase();
+}
+
+function chatIncludes(text, terms) {
+    return terms.some((term) => text.includes(term));
+}
+
+function chatHasWords(text, words) {
+    const tokens = text.split(/\s+/).filter(Boolean);
+    return words.every((word) => tokens.includes(word));
+}
+
+function getStaticChatResponse(message) {
+    const raw = normalizeChatMessage(message);
+
+    if (chatIncludes(raw, ['hello', 'hi', 'hey'])) {
+        return {
+            text: "Hi — I'm Dhushyandh. I can help with:",
+            options: ['Skills', 'Projects', 'Education', 'Experience', 'AWS', 'Azure', 'Contact']
+        };
+    }
+    if (chatIncludes(raw, ['who are you', 'about yourself']) || chatHasWords(raw, ['who', 'you'])) {
+        return { text: "I'm Dhushyandh.", options: [] };
+    }
+    if (chatIncludes(raw, ['your name']) || raw === 'name') {
+        return { text: 'Dhushyandh N.', options: [] };
+    }
+    if (chatHasWords(raw, ['skill']) || chatHasWords(raw, ['technology'])) {
+        return {
+            text: 'Frontend: HTML, CSS, JS, React, Tailwind; Backend: Node, Express; DB: MongoDB; Languages: Python, Java; Cloud: AWS, Azure.',
+            options: []
+        };
+    }
+    if (chatHasWords(raw, ['project'])) {
+        return { text: 'Projects: SmartMart; Portfolio Website; Voting System; Gemini Clone.', options: [] };
+    }
+    if (chatHasWords(raw, ['education']) || chatHasWords(raw, ['college'])) {
+        return { text: 'I am currently pursuing B.E. — Computer Science Engineering.', options: [] };
+    }
+    if (chatHasWords(raw, ['experience']) || chatHasWords(raw, ['internship'])) {
+        return { text: 'Experience: MERN stack, backend APIs, DB integration, cloud.', options: [] };
+    }
+    if (chatHasWords(raw, ['contact'])) {
+        return {
+            text: 'Contact: GitHub: https://github.com/dhushyandh | LinkedIn: https://linkedin.com/in/dhushyandh | Portfolio: https://dhushyandh.me',
+            options: []
+        };
+    }
+    if (chatIncludes(raw, ['resume'])) {
+        return { text: 'Resume available for download on the portfolio page.', options: [] };
+    }
+    return {
+        text: 'Ask about: Skills, Projects, Education, Experience, AWS, Azure, or Contact.',
+        options: []
+    };
+}
+
 async function sendMessage(optMessage) {
     const msg = (optMessage || chatInput?.value || '').trim();
     if (!msg) return;
@@ -403,9 +461,7 @@ async function sendMessage(optMessage) {
     if (!optMessage && chatInput) chatInput.value = '';
 
         try {
-            const apiUrl = window.CHAT_API_URL || ((window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
-                ? 'http://localhost:5000/chat'
-                : `${window.location.origin}/chat`);
+            const apiUrl = 'https://chatbot-xhqr.onrender.com/chat';
             console.info('Chat API URL:', apiUrl);
             const res = await fetch(apiUrl, {
                 method: 'POST',
@@ -430,8 +486,19 @@ async function sendMessage(optMessage) {
                 appendMessage(String(resp), 'bot');
             }
     } catch (err) {
-        appendMessage('Error: could not reach chat server', 'bot');
         console.error('Chat error', err);
+        const useFallback = window.USE_STATIC_CHAT_FALLBACK !== false;
+        const status = err?.message || 'unknown error';
+        if (useFallback) {
+            appendMessage(`Chat server unavailable (${status}). Using local fallback.`, 'bot');
+            const fallbackResp = getStaticChatResponse(msg);
+            appendMessage(fallbackResp.text, 'bot');
+            if (Array.isArray(fallbackResp.options) && fallbackResp.options.length) {
+                renderOptions(fallbackResp.options);
+            }
+        } else {
+            appendMessage(`Error: could not reach chat server (${status})`, 'bot');
+        }
     }
 }
 
